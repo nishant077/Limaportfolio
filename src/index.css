@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+
+
+:root {
+
+  --diplomatic-blue: #1E459F;
+  --kandahar-sun: #FABD32;
+  --muted-sage: #8FA89A;
+  --feminist-wisdom: #5D3A5D;
+  --archive-ivory: #E1DCCA;
+  --near-black: #1A1A1A;
+  --dark-navy: #162D6B;
+
+
+  --background: 0.88 0.02 94;
+  --foreground: 0.13 0 0;
+  --card: 0.91 0.01 94;
+  --card-foreground: 0.13 0 0;
+  --popover: 0.91 0.01 94;
+  --popover-foreground: 0.13 0 0;
+  --primary: 0.37 0.15 263;
+  --primary-foreground: 0.97 0 0;
+  --secondary: 0.68 0.04 162;
+  --secondary-foreground: 0.13 0 0;
+  --muted: 0.85 0.02 94;
+  --muted-foreground: 0.52 0.03 200;
+  --accent: 0.82 0.15 79;
+  --accent-foreground: 0.13 0 0;
+  --destructive: 0.55 0.18 25;
+  --destructive-foreground: 0.97 0 0;
+  --border: 0.78 0.02 94;
+  --input: 0.78 0.02 94;
+  --ring: 0.37 0.15 263;
+  --radius: 0.5rem;
+  --chart-1: 0.37 0.15 263;
+  --chart-2: 0.82 0.15 79;
+  --chart-3: 0.68 0.04 162;
+  --chart-4: 0.36 0.09 316;
+  --chart-5: 0.88 0.02 94;
+  --sidebar: 0.91 0.01 94;
+  --sidebar-foreground: 0.13 0 0;
+  --sidebar-primary: 0.37 0.15 263;
+  --sidebar-primary-foreground: 0.97 0 0;
+  --sidebar-accent: 0.85 0.02 94;
+  --sidebar-accent-foreground: 0.13 0 0;
+  --sidebar-border: 0.78 0.02 94;
+  --sidebar-ring: 0.37 0.15 263;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Work Sans', system-ui, sans-serif;
+  color: var(--near-black);
+  background-color: var(--archive-ivory);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--kandahar-sun);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero entrance animations */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.7s ease-out forwards;
+  opacity: 0;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+.animate-bounce-y {
+  animation: bounceY 2s ease-in-out infinite;
+}
+
+
+.page-enter {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--archive-ivory); }
+::-webkit-scrollbar-thumb { background: var(--muted-sage); border-radius: 3px; }
