@@ -18,7 +18,7 @@ const Documentary = () => {
 
         {/* Featured Main Card */}
         <ScrollReveal>
-          <div className="bg-[var(--diplomatic-blue)] rounded-3xl p-8 sm:p-10 md:p-14 lg:p-16 mb-20 shadow-lg relative overflow-hidden flex flex-col justify-start items-start">
+          <div className="bg-[var(--diplomatic-blue)] rounded-md p-8 sm:p-10 md:p-14 lg:p-16 mb-20 shadow-lg relative overflow-hidden flex flex-col justify-start items-start">
 
             {/* Tag */}
             <p className="text-blue-300/80 uppercase tracking-widest text-[10px] sm:text-xs font-semibold mb-6">
@@ -60,7 +60,7 @@ const Documentary = () => {
 
           {/* Card 1 */}
           <ScrollReveal delay={100}>
-            <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
+            <div className="bg-white rounded-md p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
               <p className="text-[var(--muted-sage)] uppercase tracking-widest text-[10px] sm:text-xs font-bold mb-4">
                 Facebook
               </p>
@@ -82,7 +82,7 @@ const Documentary = () => {
 
           {/* Card 2 */}
           <ScrollReveal delay={200}>
-            <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
+            <div className="bg-white rounded-md p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
               <p className="text-[var(--muted-sage)] uppercase tracking-widest text-[10px] sm:text-xs font-bold mb-4">
                 Tufts University
               </p>
@@ -104,7 +104,7 @@ const Documentary = () => {
 
           {/* Card 3 */}
           <ScrollReveal delay={300}>
-            <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
+            <div className="bg-white rounded-md p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start justify-start">
               <p className="text-[var(--muted-sage)] uppercase tracking-widest text-[10px] sm:text-xs font-bold mb-4">
                 Asian Diaspora / TikTok
               </p>

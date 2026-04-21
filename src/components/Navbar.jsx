@@ -1,12 +1,14 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useRouter } from "../router";
+import logo from "../assets/logolima.png";
 
 const navLinks = [
     { label: "About", to: "/about" },
     { label: "Initiatives", to: "/initiatives" },
     { label: "Documentary", to: "/documentary" },
     { label: "Articles & Publications", to: "/articles" },
+    { label: "Blog", to: "/blog" },
 ];
 
 export default function Navbar() {
@@ -49,17 +51,14 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link
                         to="/"
-                        className="font-serif text-2xl font-bold no-underline"
-                        style={{ color: "var(--diplomatic-blue)" }}
+                        className="flex items-center no-underline hover:scale-105 transition-transform duration-200"
                         data-ocid="nav.link.1"
                     >
-                        <span className="relative">
-                            Lima
-                            <span
-                                className="absolute -bottom-1 left-0 right-0 h-px"
-                                style={{ backgroundColor: "var(--diplomatic-blue)" }}
-                            />
-                        </span>
+                        <img
+                            src={logo}
+                            alt="LIMA"
+                            className="h-12 w-auto object-contain rounded-full"
+                        />
                     </Link>
 
                     {/* Desktop links */}
@@ -123,10 +122,13 @@ export default function Navbar() {
                     <div className="flex items-center justify-between px-6 h-16">
                         <Link
                             to="/"
-                            className="font-serif text-2xl font-bold no-underline"
-                            style={{ color: "white" }}
+                            className="flex items-center no-underline"
                         >
-                            Lima
+                            <img
+                                src={logo}
+                                alt="LIMA"
+                                className="h-12 w-auto object-contain brightness-0 invert"
+                            />
                         </Link>
                         <button
                             type="button"

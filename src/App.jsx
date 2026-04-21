@@ -1,7 +1,11 @@
+import React, { useState } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Preloader from "./components/Preloader";
 import About from "./pages/About";
 import Articles from "./pages/Articles";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Documentary from "./pages/Documentary";
 import Home from "./pages/Home";
@@ -23,7 +27,13 @@ function PageRouter() {
         return <Articles />;
       case "/contact":
         return <Contact />;
+      case "/blog":
+        return <Blog />;
       default:
+        if (path.startsWith("/blog/")) {
+          const id = path.split("/").pop();
+          return <BlogPost id={id} />;
+        }
         return <Home />;
     }
   };
@@ -38,9 +48,16 @@ function PageRouter() {
 }
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <RouterProvider>
-      <PageRouter />
-    </RouterProvider>
+    <>
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      {!loading && (
+        <RouterProvider>
+          <PageRouter />
+        </RouterProvider>
+      )}
+    </>
   );
 }

@@ -1,6 +1,6 @@
-import ImprintArc from "../components/ImprintArc";
 import ScrollReveal from "../components/ScrollReveal";
-import TopographySVG from "../components/TopographySVG";
+import threecurvewhite from '../assets/threecurvewhite.png';
+import aboutimg from '../assets/aboutlima.png';
 
 const timeline = [
   {
@@ -33,16 +33,30 @@ export default function About() {
         className="relative pt-32 pb-20 flex items-center justify-center overflow-hidden"
         style={{ backgroundColor: "var(--diplomatic-blue)", minHeight: "50vh" }}
       >
-        {/* <ImprintArc
-          className="w-96 h-96 right-8 top-8"
-          style={{
-            position: "absolute",
-            right: "2rem",
-            top: "2rem",
-            width: "24rem",
-            height: "24rem",
-          }}
-        /> */}
+         <img
+                  src={threecurvewhite}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute pointer-events-none select-none"
+                  style={{
+                    left: -100,
+                    width: "clamp(300px, 20vw, 400px)",
+                    opacity: 0.55,
+                    transform: "translate(-15%, -15%)",
+                  }}
+                />
+                <img
+                          src={threecurvewhite}
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute pointer-events-none select-none"
+                          style={{
+                            right: -100,
+                            width: "clamp(300px, 20vw, 400px)",
+                            opacity: 0.55,
+                            transform: "translate(5%, -5%) rotate(180deg)",
+                          }}
+                        />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <p
             className="font-sans text-xs font-semibold tracking-[0.16em] uppercase mb-6"
@@ -72,23 +86,18 @@ export default function About() {
             {/* Sticky photo */}
             <aside className="lg:w-[38%] flex-shrink-0">
               <div
-                className="rounded-2xl overflow-hidden lg:sticky"
+                className="rounded-md overflow-hidden lg:sticky shadow-2xl"
                 style={{
                   top: "6rem",
                   aspectRatio: "3/4",
                   maxHeight: "520px",
-                  background:
-                    "linear-gradient(145deg, var(--muted-sage) 0%, var(--feminist-wisdom) 60%, var(--diplomatic-blue) 100%)",
                 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <span
-                    className="font-serif italic text-white text-xl"
-                    style={{ opacity: 0.85 }}
-                  >
-                    Lima&apos;s Portrait
-                  </span>
-                </div>
+                <img
+                  src={aboutimg}
+                  alt="Lima Halima-Khalil Portrait"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </aside>
 
@@ -182,40 +191,43 @@ export default function About() {
                   Path of Resilience
                 </h2>
                 <div className="relative">
-                  {/* Vertical line */}
-                  <div
-                    className="absolute left-5 top-3 bottom-3 w-0.5"
-                    style={{
-                      backgroundColor: "var(--diplomatic-blue)",
-                      opacity: 0.2,
-                    }}
-                  />
-                  <div className="flex flex-col gap-10">
+                  <div className="flex flex-col gap-12">
                     {timeline.map((item, i) => (
-                      <ScrollReveal key={item.year} delay={i * 150}>
-                        <div className="flex gap-6">
-                          {/* Dot */}
-                          <div className=" w-10 flex items-start pt-1">
+                      <ScrollReveal key={i} delay={i * 150}>
+                        <div className="flex gap-10">
+                          {/* Dot container */}
+                          <div className="w-8 flex flex-col items-center pt-1.5 shrink-0 relative">
+                            {/* Dot */}
                             <div
-                              className="w-4 h-4 rounded-full border-2"
+                              className="w-5 h-5 rounded-full z-10"
                               style={{
                                 backgroundColor: "var(--kandahar-sun)",
-                                borderColor: "var(--kandahar-sun)",
                               }}
                             />
+                            {/* Line segment */}
+                            {i < timeline.length - 1 && (
+                              <div
+                                className="absolute top-4 w-px h-[calc(100%+3rem)]"
+                                style={{
+                                  backgroundColor: "var(--diplomatic-blue)",
+                                  opacity: 0.15,
+                                }}
+                              />
+                            )}
                           </div>
-                          <div>
-                            <p
-                              className="font-serif font-semibold text-xl mb-1"
+                          {/* Text content */}
+                          <div className="flex-1">
+                            <h3
+                              className="font-serif font-semibold text-2xl mb-2"
                               style={{ color: "var(--diplomatic-blue)" }}
                             >
                               {item.location}
-                            </p>
+                            </h3>
                             <p
-                              className="font-sans text-base leading-[1.65]"
+                              className="font-sans text-xl leading-[1.65]"
                               style={{
                                 color: "var(--near-black)",
-                                opacity: 0.75,
+                                opacity: 0.6,
                               }}
                             >
                               {item.note}

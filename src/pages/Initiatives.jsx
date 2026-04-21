@@ -65,7 +65,7 @@ const Initiatives = () => {
             <ScrollReveal>
               <div
                 key={initiative.id}
-                className="sr-card bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+                className="sr-card bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 {/* Media Section */}
 

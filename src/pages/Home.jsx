@@ -8,10 +8,17 @@ import {
   Plus,
 } from "lucide-react";
 import { useState } from "react";
-import ImprintArc from "../components/ImprintArc";
+// import ImprintArc from "../components/ImprintArc";
 import ScrollReveal from "../components/ScrollReveal";
 import TopographySVG from "../components/TopographySVG";
 import { Link } from "../router";
+import limaprofile from '../assets/LimaProfile.png'
+import wave from '../assets/wave.png'
+import threecurve from '../assets/threecurve.png'
+import threecurvewhite from '../assets/threecurvewhite.png'
+import aboutlima from '../assets/aboutlima.png';
+import initiatives2 from '../assets/initiative2.JPG'
+import initiatives3 from '../assets/initiatives3.jpg'
 
 const institutions = [
   "The Fletcher School",
@@ -45,6 +52,7 @@ const initiatives = [
     body: "The South Asian Youth Conference 2017 was a three-day regional gathering of more than 100 young leaders from across South Asia held in Kabul, Afghanistan in April 2017.",
     link: "https://www.youtube.com/watch?v=1fFscWZntqE",
     linkLabel: "Watch on YouTube",
+    img: null
   },
   {
     num: "02",
@@ -52,6 +60,7 @@ const initiatives = [
     body: "The “I See You” Campaign was a grassroots anti-corruption initiative co-founded in Afghanistan in 2014 by Lima and fellow activists and artists.",
     link: null,
     linkLabel: "Read More",
+    img: initiatives2
   },
   {
     num: "03",
@@ -59,6 +68,7 @@ const initiatives = [
     body: "This art-based therapy initiative was developed by Lima through the adaptation of the body mapping method from the field of anthropology, combined with participatory visual art practices.",
     link: null,
     linkLabel: "Read More",
+    img: initiatives3
   },
 ];
 
@@ -129,22 +139,20 @@ export default function Home() {
             "radial-gradient(ellipse 70% 80% at 20% 60%, rgba(250,189,50,0.06) 0%, transparent 60%), var(--archive-ivory)",
         }}
       >
-        <div className="relative z-10 px-10 lg:px-16 w-full">
-          {/* Main Hero Grid: Watermark, Heading/Text, Image */}
-          <div className="grid grid-cols-1 xl:grid-cols-[auto_55fr_45fr] lg:grid-cols-[auto_1fr_1fr] gap-8 lg:gap-16 py-16 lg:py-20">
-
-            {/* 1. LIMA Watermark */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-12 md:pt-0">
+          {/* Main Hero Container */}
+          <div className="relative">
+            {/* 1. LIMA Watermark — Absolute positioned to stay in the far left corner */}
             <div
-              className="flex justify-center items-center pointer-events-none select-none order-1 lg:order-1"
+              className="absolute -left-12 md:-left-20 lg:-left-32 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:block"
               aria-hidden="true"
             >
-              {/* Desktop Vertical Watermark */}
               <span
-                className="font-serif font-bold leading-none hidden lg:block"
+                className="font-serif font-bold leading-none"
                 style={{
                   fontSize: "clamp(120px, 12vw, 180px)",
                   color: "var(--diplomatic-blue)",
-                  opacity: 0.055,
+                  opacity: 0.04,
                   writingMode: "vertical-rl",
                   textOrientation: "mixed",
                   transform: "rotate(180deg)",
@@ -152,214 +160,165 @@ export default function Home() {
               >
                 LIMA
               </span>
-              {/* Mobile Horizontal Watermark */}
+            </div>
+
+            {/* Mobile Horizontal Watermark */}
+            <div
+              className="relative block lg:hidden pointer-events-none select-none pb-8 opacity-5"
+              aria-hidden="true"
+            >
               <span
-                className="font-serif font-bold leading-none block lg:hidden pb-4 lg:pb-0"
+                className="font-serif font-bold leading-none"
                 style={{
-                  fontSize: "clamp(80px, 25vw, 120px)",
+                  fontSize: "clamp(60px, 25vw, 120px)",
                   color: "var(--diplomatic-blue)",
-                  opacity: 0.055,
                 }}
               >
                 LIMA
               </span>
             </div>
 
-            {/* 2. Left Text Content */}
-            <div className="order-2 lg:order-2">
-              {/* Editorial tag line with Kandahar Sun accent rule */}
-              <div
-                className="flex items-center gap-3 mb-7 animate-fade-in"
-                style={{ animationDelay: "0ms" }}
-              >
-                <span
-                  className="block h-px w-8 flex-shrink-0"
-                  style={{ backgroundColor: "var(--kandahar-sun)" }}
-                />
+            {/* Content Grid: Now aligned with the navbar logo/start */}
+            <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-8 lg:gap-16 items-center">
+
+              {/* 2. Left Text Content */}
+              <div className="order-2 lg:order-1 lg:pl-20">
+                {/* Editorial tag line with Kandahar Sun accent rule */}
+                <div
+                  className="flex items-center gap-3 mb-7 animate-fade-in"
+                  style={{ animationDelay: "0ms" }}
+                >
+                  <p
+                    className="font-sans font-semibold tracking-[0.18em] uppercase"
+                    style={{ fontSize: "13px", color: "var(--muted-sage)" }}
+                  >
+                    Human Security Expert &amp; Storyteller
+                  </p>
+                </div>
+
+                {/* H1 — let EB Garamond breathe at full scale */}
+                <h1
+                  className="font-serif font-bold leading-[1.05] mb-8 text-4xl md:text-5xl"
+                  style={{
+                    color: "var(--diplomatic-blue)",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  <span
+                    className="block animate-fade-slide-up"
+                    style={{ animationDelay: "120ms" }}
+                  >
+                    Hey there, I&apos;m
+                  </span>
+                  <span
+                    className="block animate-fade-slide-up"
+                    style={{ animationDelay: "210ms" }}
+                  >
+                    Lima Halima-Khalil.
+                  </span>
+                  {/* <span
+                    className="block animate-fade-slide-up"
+                    style={{ animationDelay: "300ms" }}
+                >
+                   
+                </span> */}
+                </h1>
+
                 <p
-                  className="font-sans font-semibold tracking-[0.18em] uppercase"
-                  style={{ fontSize: "13px", color: "var(--muted-sage)" }}
+                  className="font-sans text-lg leading-[1.7] mb-10 max-w-lg animate-fade-slide-up"
+                  style={{
+                    color: "var(--near-black)",
+                    opacity: 0.8,
+                    animationDelay: "420ms",
+                  }}
                 >
-                  Human Security Expert &amp; Storyteller
+                  Co-Founder &amp; Program Director, ArtLords.
+                  <br />A Human Security Expert and Ph.D. in International
+                  Security and Human Security from The Fletcher School of Tufts
+                  University.
                 </p>
+
+                <div
+                  className="flex flex-wrap gap-5 animate-fade-in"
+                  style={{ animationDelay: "580ms" }}
+                >
+                  <Link
+                    to="/contact"
+                    className="font-sans font-bold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl no-underline"
+                    style={{
+                      fontSize: "16px",
+                      backgroundColor: "var(--kandahar-sun)",
+                      color: "var(--diplomatic-blue)",
+                      boxShadow: "0 10px 25px rgba(250,189,50,0.4)",
+                    }}
+                    data-ocid="hero.primary_button"
+                  >
+                    Get in Touch
+                  </Link>
+                  <a
+                    href="https://www.youtube.com/watch?v=1fFscWZntqE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans font-bold px-10 py-4 rounded-full border-2 flex items-center gap-3 transition-all duration-300 hover:scale-105 no-underline"
+                    style={{
+                      fontSize: "16px",
+                      borderColor: "var(--diplomatic-blue)",
+                      color: "var(--diplomatic-blue)",
+                      backgroundColor: "transparent",
+                    }}
+                    data-ocid="hero.secondary_button"
+                  >
+                    <Play size={16} fill="currentColor" /> Watch My Story
+                  </a>
+                </div>
               </div>
 
-              {/* H1 — let EB Garamond breathe at full scale */}
-              <h1
-                className="font-serif font-bold leading-[1.03] mb-7 text-7xl"
-                style={{
-                  color: "var(--diplomatic-blue)",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                <span
-                  className="block animate-fade-slide-up"
-                  style={{ animationDelay: "120ms" }}
-                >
-                  Hey there,
-                </span>
-                <span
-                  className="block animate-fade-slide-up"
-                  style={{ animationDelay: "210ms" }}
-                >
-                  I&apos;m Lima
-                </span>
-                <span
-                  className="block animate-fade-slide-up"
-                  style={{ animationDelay: "300ms" }}
-                >
-                  Halima-Khalil.
-                </span>
-              </h1>
+              {/* Right — Portrait Image with Decorative Elements */}
+              <div className="relative flex justify-center lg:justify-end animate-slide-in-right order-3">
+                <div className="relative w-full max-w-[380px]">
 
-              <p
-                className="font-sans text-lg leading-[1.7] mb-10 max-w-lg animate-fade-slide-up"
-                style={{
-                  color: "var(--near-black)",
-                  opacity: 0.8,
-                  animationDelay: "420ms",
-                }}
-              >
-                Co-Founder &amp; Program Director, ArtLords.
-                <br />A Human Security Expert and Ph.D. in International
-                Security and Human Security from The Fletcher School of Tufts
-                University.
-              </p>
+                  {/* Decorative threecurve in the foreground/overlay */}
+                  <div className="absolute -top-16 -right-12 z-20 pointer-events-none w-48 h-48">
+                    <img
+                      src={threecurve}
+                      alt=""
+                      className="w-full h-full object-contain opacity-70"
+                    />
+                  </div>
 
-              <div
-                className="flex flex-wrap gap-4 animate-fade-in"
-                style={{ animationDelay: "580ms" }}
-              >
-                <Link
-                  to="/contact"
-                  className="font-sans font-semibold px-8 py-3.5 rounded-full transition-all duration-200 hover:scale-105 hover:brightness-110 no-underline"
-                  style={{
-                    fontSize: "15px",
-                    backgroundColor: "var(--kandahar-sun)",
-                    color: "var(--diplomatic-blue)",
-                    boxShadow: "0 4px 20px rgba(250,189,50,0.3)",
-                  }}
-                  data-ocid="hero.primary_button"
-                >
-                  Get in Touch
-                </Link>
-                <a
-                  href="https://www.youtube.com/watch?v=1fFscWZntqE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans font-semibold px-8 py-3.5 rounded-full border-2 flex items-center gap-2.5 transition-all duration-200 hover:scale-105 no-underline"
-                  style={{
-                    fontSize: "15px",
-                    borderColor: "var(--diplomatic-blue)",
-                    color: "var(--diplomatic-blue)",
-                    backgroundColor: "transparent",
-                  }}
-                  data-ocid="hero.secondary_button"
-                >
-                  <Play size={14} fill="currentColor" /> Watch My Story
-                </a>
-              </div>
-            </div>
+                  {/* Blue tilted frame behind the image */}
+                  <div
+                    className="absolute inset-0 rounded-md"
+                    style={{
+                      backgroundColor: "var(--diplomatic-blue)",
+                      transform: "rotate(-3deg)",
+                      zIndex: 1,
+                      boxShadow: "0 20px 50px rgba(30,69,159,0.3)"
+                    }}
+                  />
 
-            {/* Right \u2014 portrait placeholder (Image Container) */}
-            <div className="relative flex justify-center lg:justify-end animate-slide-in-right order-3 lg:order-3">
-              {/* ImprintArc behind the portrait */}
-              <ImprintArc
-                style={{
-                  position: "absolute",
-                  top: "-8%",
-                  left: "-8%",
-                  zIndex: 0,
-                  width: "115%",
-                  height: "115%",
-                }}
-              />
-
-              {/* Diplomatic blue backing block — offset to the left */}
-              <div
-                className="absolute rounded-2xl"
-                style={{
-                  top: "5%",
-                  left: "-6%",
-                  right: "6%",
-                  bottom: "-5%",
-                  backgroundColor: "var(--diplomatic-blue)",
-                  opacity: 0.12,
-                  zIndex: 1,
-                }}
-              />
-
-              {/* Kandahar Sun accent corner frame — bottom-right */}
-              <div
-                className="absolute z-20 pointer-events-none"
-                style={{
-                  bottom: "-10px",
-                  right: "-10px",
-                  width: "80px",
-                  height: "80px",
-                  borderBottom: "3px solid var(--kandahar-sun)",
-                  borderRight: "3px solid var(--kandahar-sun)",
-                  borderRadius: "0 0 16px 0",
-                }}
-              />
-              {/* Top-left corner */}
-              <div
-                className="absolute z-20 pointer-events-none"
-                style={{
-                  top: "-10px",
-                  left: "-10px",
-                  width: "60px",
-                  height: "60px",
-                  borderTop: "3px solid var(--kandahar-sun)",
-                  borderLeft: "3px solid var(--kandahar-sun)",
-                  borderRadius: "16px 0 0 0",
-                  opacity: 0.6,
-                }}
-              />
-
-              <div
-                className="relative z-10 w-full max-w-sm rounded-2xl overflow-hidden"
-                style={{
-                  aspectRatio: "4/5",
-                  background:
-                    "linear-gradient(160deg, var(--muted-sage) 0%, #4A6E72 40%, var(--diplomatic-blue) 100%)",
-                  boxShadow:
-                    "0 24px 72px rgba(30,69,159,0.28), 0 8px 24px rgba(30,69,159,0.12)",
-                }}
-              >
-                {/* Inner texture overlay */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse 80% 60% at 40% 30%, rgba(250,189,50,0.08) 0%, transparent 70%)",
-                  }}
-                />
-                <div
-                  className="absolute inset-0 flex flex-col items-center justify-center"
-                  style={{ backgroundColor: "rgba(22,45,107,0.2)" }}
-                >
-                  <span
-                    className="font-serif italic text-white text-xl text-center px-6"
-                    style={{ opacity: 0.9, letterSpacing: "0.01em" }}
-                  >
-                    Lima&apos;s Portrait
-                  </span>
-                  <span
-                    className="font-sans text-xs text-white mt-2"
-                    style={{ opacity: 0.5, letterSpacing: "0.08em" }}
-                  >
-                    PHOTO PLACEHOLDER
-                  </span>
+                  {/* Main Image Container */}
+                  <div className="relative z-10 w-[95%] h-[95%] mx-auto mt-[3%] rounded-md overflow-hidden shadow-2xl transform hover:rotate-1 transition-transform duration-500" style={{ aspectRatio: "4/5" }}>
+                    <img
+                      src={limaprofile}
+                      alt="Lima Halima-Khalil"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom topography — more prominent */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <TopographySVG color="var(--feminist-wisdom)" opacity={0.18} />
+        {/* Bottom Wave Image — matches the requested design */}
+        <div className="absolute bottom-0 left-0 right-0 z-0 pointer-events-none overflow-hidden h-32">
+          <img
+            src={wave}
+            alt=""
+            className="w-full h-full object-cover select-none"
+            style={{ opacity: 0.1, mixBlendMode: 'multiply' }}
+          />
         </div>
 
         {/* Scroll indicator */}
@@ -416,22 +375,17 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScrollReveal direction="left">
               <div
-                className="rounded-2xl overflow-hidden w-full"
+                className="rounded-md overflow-hidden w-full shadow-xl"
                 style={{
-                  aspectRatio: "3/4",
-                  background:
-                    "linear-gradient(160deg, var(--archive-ivory) 0%, var(--muted-sage) 60%, var(--diplomatic-blue) 100%)",
-                  maxHeight: "500px",
+                  aspectRatio: "2/3",
+                  maxHeight: "600px",
                 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <span
-                    className="font-serif italic text-white text-xl"
-                    style={{ opacity: 0.8 }}
-                  >
-                    Candid Portrait
-                  </span>
-                </div>
+                <img
+                  src={aboutlima}
+                  alt="Lima Halima-Khalil"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </ScrollReveal>
 
@@ -549,7 +503,7 @@ export default function Home() {
             {initiatives.map((item, i) => (
               <ScrollReveal key={item.num} delay={i * 100}>
                 <div
-                  className="relative rounded-2xl overflow-hidden transition-all duration-200 cursor-default group hover:-translate-y-1 hover:border-l-4 hover:border-[#FABD32]"
+                  className="relative rounded-md overflow-hidden transition-all duration-200 cursor-default group hover:-translate-y-1 hover:border-l-4 hover:border-[#FABD32]"
                   style={{
                     backgroundColor: "white",
                     boxShadow: "0 4px 20px rgba(30,69,159,0.08)",
@@ -620,17 +574,45 @@ export default function Home() {
                       )}
                     </div>
 
-                    {/* Image Placeholder */}
+                    {/* Image / Video Container */}
                     <div className="order-1 md:order-2 relative z-10 w-full">
-                      <div
-                        className="w-full rounded-xl"
-                        style={{
-                          height: "240px",
-                          background:
-                            "linear-gradient(135deg, var(--muted-sage) 0%, var(--diplomatic-blue) 100%)",
-                          opacity: 0.75,
-                        }}
-                      />
+                      {item.img ? (
+                        <div
+                          className="w-full rounded-xl overflow-hidden shadow-md"
+                          style={{ height: "240px" }}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : item.link && item.link.includes("youtube.com") ? (
+                        <div
+                          className="w-full rounded-xl overflow-hidden shadow-md bg-black relative"
+                          style={{ height: "240px" }}
+                        >
+                          <iframe
+                            className="w-full h-full"
+                            src={`https://www.youtube.com/embed/${item.link.split("v=")[1]
+                              }`}
+                            title={item.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                      ) : (
+                        <div
+                          className="w-full rounded-xl"
+                          style={{
+                            height: "240px",
+                            background:
+                              "linear-gradient(135deg, var(--muted-sage) 0%, var(--diplomatic-blue) 100%)",
+                            opacity: 0.75,
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -650,30 +632,34 @@ export default function Home() {
           paddingBottom: "clamp(80px, 12vw, 160px)",
         }}
       >
-        {/* ImprintArc positioned to frame — NOT stretched */}
-        {/* <ImprintArc
-          variant="quote"
+        {/* Decorative threecurvewhite — left side (top-left + bottom-left) */}
+        <img
+          src={threecurvewhite}
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none"
           style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            width: "55%",
-            height: "100%",
-            maxWidth: "700px",
+            left: -100,
+            width: "clamp(300px, 20vw, 400px)",
+            opacity: 0.55,
+            transform: "translate(-15%, -15%)",
           }}
         />
-        <ImprintArc
-          variant="quote"
+
+        {/* Decorative threecurvewhite — right side (top-right + bottom-right, mirrored) */}
+        <img
+          src={threecurvewhite}
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none"
           style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            width: "45%",
-            height: "80%",
-            maxWidth: "560px",
-            transform: "rotate(180deg)",
+            right: -100,
+            width: "clamp(300px, 20vw, 400px)",
+            opacity: 0.55,
+            transform: "translate(5%, -5%) rotate(180deg)",
           }}
-        /> */}
+        />
+
 
         <ScrollReveal
           direction="scale"
@@ -720,14 +706,6 @@ export default function Home() {
         className="py-20 relative overflow-hidden"
         style={{ backgroundColor: "var(--diplomatic-blue)" }}
       >
-        {/* Topography spans full section height — behind all content */}
-        <div
-          className="absolute inset-0 flex flex-col justify-between pointer-events-none"
-          aria-hidden="true"
-        >
-          <TopographySVG color="white" opacity={0.07} />
-          <TopographySVG color="white" opacity={0.05} className="rotate-180" />
-        </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
           <ScrollReveal>
@@ -896,13 +874,13 @@ export default function Home() {
           </ScrollReveal>
 
           <div
-            className="rounded-2xl overflow-hidden"
+            className="rounded-md overflow-hidden"
             style={{ border: "1px solid rgba(30,69,159,0.1)" }}
           >
             {awards.map((award, i) => (
               <div
                 key={award.name}
-                className="flex items-center justify-between px-7 py-5 transition-all duration-150 group cursor-pointer relative"
+                className="flex items-center justify-between px-7 py-5 transition-all duration-150 group cursor-pointer relative hover:pl-10"
                 style={{
                   backgroundColor: "white",
                 }}
